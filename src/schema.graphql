@@ -1,0 +1,25 @@
+# Custom Types
+
+type User {
+    id: ID! # ! -> param obligatoire (non-null)
+    name: String!
+    email: String!
+    age: Int
+}
+
+# Query
+type Query {
+    hello: String # nom de la requete: Type de réponse
+    # nb: Int
+    # deci: Float
+    # TrueFalse: Boolean
+    # unique nb/str: ID
+    users: [User!]! # ! pour avoir au moins un user avec bonnes valeurs ! et si vide return error 
+    user(id: ID!): User!
+}
+
+# Mutation
+type Mutation {
+    createUser(id: ID!, name: String!, email: String!, age: Int): User!
+    deleteUser(id: ID!): Boolean!
+}
